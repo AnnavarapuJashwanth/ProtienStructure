@@ -1,0 +1,17 @@
+[Unit]
+Description=FoldCloud Streamlit application
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/opt/foldcloud
+Environment=PATH=/opt/foldcloud/.venv/bin
+ExecStart=/opt/foldcloud/.venv/bin/streamlit run /opt/foldcloud/app.py --server.address 0.0.0.0 --server.port 8501 --server.headless true
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

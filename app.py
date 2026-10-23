@@ -21,7 +21,7 @@ st.set_page_config(
 # --------------------------------------------------
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
     --bg: #080d19;
@@ -522,6 +522,117 @@ def remove_embedded_navigation(page_html):
     return page_html.replace("</head>", embedded_layout_css + "</head>", 1)
 
 
+def apply_design_theme(page_html):
+    """Apply the shared FoldCloud visual language to every supplied UI."""
+    visual_theme_css = """
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+      :root {
+        --fold-bg: #081321;
+        --fold-panel: #101e31;
+        --fold-panel-soft: #14263d;
+        --fold-border: rgba(126, 180, 220, .22);
+        --fold-text: #eaf4ff;
+        --fold-muted: #91a8c5;
+        --fold-accent: #53e6e0;
+        --fold-blue: #82b9ff;
+      }
+
+      html, body {
+        background:
+          radial-gradient(circle at 85% 8%, rgba(72, 119, 210, .20), transparent 30%),
+          radial-gradient(circle at 8% 92%, rgba(46, 192, 190, .12), transparent 28%),
+          var(--fold-bg) !important;
+        color: var(--fold-text) !important;
+        font-family: 'DM Sans', sans-serif !important;
+      }
+
+      body, main, header, aside,
+      [class*="bg-white"], [class*="bg-slate-50"],
+      [class*="bg-[#f8fafc]"], [class*="bg-[#f1f5f9]"] {
+        background-color: var(--fold-bg) !important;
+        color: var(--fold-text) !important;
+      }
+
+      header, aside,
+      [class*="border-[#e2e8f0]"],
+      [class*="border-slate-200"] {
+        border-color: var(--fold-border) !important;
+        background: rgba(12, 25, 43, .94) !important;
+      }
+
+      [class*="rounded-xl"], [class*="rounded-lg"],
+      [class*="rounded-2xl"] {
+        border-color: var(--fold-border) !important;
+      }
+
+      main > div > div > div,
+      main section,
+      [class*="shadow-sm"], [class*="shadow-md"] {
+        background: linear-gradient(145deg, rgba(20, 38, 61, .96), rgba(12, 27, 46, .96)) !important;
+        color: var(--fold-text) !important;
+      }
+
+      [class*="text-[#0f172a]"], [class*="text-[#1e293b]"],
+      [class*="text-slate-700"], [class*="text-slate-800"],
+      [class*="text-[#334155]"] {
+        color: var(--fold-text) !important;
+      }
+
+      [class*="text-[#475569]"], [class*="text-[#64748b]"],
+      [class*="text-[#94a3b8]"], [class*="text-slate-500"] {
+        color: var(--fold-muted) !important;
+      }
+
+      [class*="text-[#0284c7]"], [class*="text-[#0369a1]"],
+      [class*="text-sky-700"], [class*="text-sky-800"] {
+        color: var(--fold-accent) !important;
+      }
+
+      input, textarea, select {
+        background: #0b1a2d !important;
+        color: var(--fold-text) !important;
+        border-color: var(--fold-border) !important;
+      }
+
+      input::placeholder, textarea::placeholder {
+        color: #7188a5 !important;
+      }
+
+      [class*="bg-[#e0f2fe]"], [class*="bg-sky-100"],
+      [class*="bg-emerald-50"], [class*="bg-amber-50"] {
+        background: rgba(83, 230, 224, .12) !important;
+        color: var(--fold-accent) !important;
+        border-color: rgba(83, 230, 224, .28) !important;
+      }
+
+      button, [role="button"] {
+        border-color: var(--fold-border) !important;
+      }
+
+      h1, h2, h3, h4 {
+        font-family: 'Space Grotesk', sans-serif !important;
+        color: var(--fold-text) !important;
+        letter-spacing: -.35px;
+      }
+
+      code, pre, textarea, [class*="font-code"] {
+        font-family: 'IBM Plex Mono', monospace !important;
+      }
+
+      ::-webkit-scrollbar { width: 8px; height: 8px; }
+      ::-webkit-scrollbar-track { background: #091524; }
+      ::-webkit-scrollbar-thumb {
+        background: #294565;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover { background: #3b6d91; }
+    </style>
+    """
+    return page_html.replace("</head>", visual_theme_css + "</head>", 1)
+
+
 if selected_page != "Live Protein Search":
     selected_file = page_files[selected_page]
     selected_path = os.path.join(os.path.dirname(__file__), "html_pages", selected_file)
@@ -544,6 +655,7 @@ if selected_page != "Live Protein Search":
             backend_accession,
         )
         page_html = remove_embedded_navigation(page_html)
+        page_html = apply_design_theme(page_html)
         components.html(page_html, height=1900, scrolling=True)
     except OSError as exc:
         st.error(f"Could not load {selected_file}: {exc}")

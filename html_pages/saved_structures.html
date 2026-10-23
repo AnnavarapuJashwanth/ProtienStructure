@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "error-container": "#ffdad6",
+          "surface-bright": "#f8fafc",
+          "surface-container-low": "#f8fafc",
+          "background": "#f8fafc",
+          "on-error-container": "#93000a",
+          "primary-fixed": "#cce5ff",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary": "#ffffff",
+          "surface-variant": "#e2e8f0",
+          "tertiary-fixed-dim": "#89ceff",
+          "outline": "#64748b",
+          "error": "#dc2626",
+          "on-secondary": "#ffffff",
+          "on-error": "#ffffff",
+          "on-tertiary-fixed-variant": "#004c6e",
+          "inverse-surface": "#0f172a",
+          "on-secondary-fixed": "#131b2e",
+          "surface-container-high": "#e2e8f0",
+          "on-tertiary-fixed": "#001e2f",
+          "on-surface-variant": "#475569",
+          "on-primary-fixed": "#001d31",
+          "on-tertiary-container": "#fcfcff",
+          "inverse-on-surface": "#f1f5f9",
+          "primary-fixed-dim": "#93ccff",
+          "secondary-fixed-dim": "#cbd5e1",
+          "secondary-container": "#e0f2fe",
+          "secondary-fixed": "#e2e8f0",
+          "tertiary": "#0284c7",
+          "on-primary-container": "#0369a1",
+          "on-primary-fixed-variant": "#004b73",
+          "primary": "#0284c7",
+          "surface-dim": "#f1f5f9",
+          "on-primary": "#ffffff",
+          "surface-container": "#f1f5f9",
+          "on-secondary-container": "#334155",
+          "tertiary-fixed": "#c9e6ff",
+          "on-background": "#0f172a",
+          "secondary": "#475569",
+          "surface": "#f8fafc",
+          "on-surface": "#0f172a",
+          "surface-container-highest": "#cbd5e1",
+          "tertiary-container": "#e0f2fe",
+          "on-secondary-fixed-variant": "#334155",
+          "primary-container": "#e0f2fe",
+          "inverse-primary": "#38bdf8",
+          "surface-tint": "#0284c7",
+          "outline-variant": "#e2e8f0"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.375rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "margin-desktop": "2rem",
+          "space-2xs": "0.125rem",
+          "space-2xl": "2rem",
+          "gutter": "1rem",
+          "gutter-desktop": "1.5rem",
+          "space-3xl": "3rem",
+          "space-md": "0.75rem",
+          "space-xl": "1.5rem",
+          "space-lg": "1rem",
+          "space-xs": "0.25rem",
+          "space-sm": "0.5rem",
+          "margin": "1rem"
+        },
+        "fontFamily": {
+          "label-caps": ["JetBrains Mono"],
+          "headline-sm": ["Inter"],
+          "body-md": ["Inter"],
+          "code-lg": ["JetBrains Mono"],
+          "display-lg": ["Inter"],
+          "body-lg": ["Inter"],
+          "headline-md": ["Inter"],
+          "body-sm": ["Inter"],
+          "code-md": ["JetBrains Mono"],
+          "code-sm": ["JetBrains Mono"]
+        },
+        "fontSize": {
+          "label-caps": ["0.6875rem", { "lineHeight": "0.875rem", "letterSpacing": "0.08em", "fontWeight": "600" }],
+          "headline-sm": ["1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "body-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "400" }],
+          "code-lg": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+          "display-lg": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.025em", "fontWeight": "700" }],
+          "body-lg": ["1rem", { "lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "400" }],
+          "headline-md": ["1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+          "body-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.01em", "fontWeight": "400" }],
+          "code-md": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0em", "fontWeight": "400" }],
+          "code-sm": ["0.6875rem", { "lineHeight": "0.875rem", "letterSpacing": "0.02em", "fontWeight": "400" }]
+        }
+      },
+    },
+  };</script></head><body class="bg-[#f8fafc] font-body-md text-slate-900 antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-white border-r border-slate-200 z-50 flex flex-col justify-between py-space-lg shadow-sm"><div class="flex flex-col gap-space-lg"><div class="px-space-lg flex items-center gap-space-sm"><div class="p-space-xs bg-sky-50 border border-sky-100 rounded-lg text-sky-600 flex items-center justify-center"><span class="material-symbols-outlined text-headline-sm">biotech</span></div><div class="flex flex-col"><span class="font-code-lg text-code-lg font-semibold tracking-tight text-slate-900">AlphaFold Engine</span><span class="font-code-sm text-code-sm text-slate-500 uppercase">AWS Native v4.2.1</span></div></div><div class="px-space-md"><div class="text-label-caps font-label-caps uppercase text-slate-400 px-space-sm mb-space-xs">Navigation</div><nav class="flex flex-col gap-space-2xs"><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-all" data-path="structure-search-and-3d-viewer" href="#"><span class="material-symbols-outlined text-headline-sm text-slate-500">view_in_ar</span><span class="font-body-md text-body-md font-medium">Structure Search &amp; 3D Viewer</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-all" data-path="alphafold-batch-prediction" href="#"><span class="material-symbols-outlined text-headline-sm text-slate-500">memory</span><span class="font-body-md text-body-md font-medium">AlphaFold Batch Prediction</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-all" data-path="sequence-alignment-and-fasta" href="#"><span class="material-symbols-outlined text-headline-sm text-slate-500">dehaze</span><span class="font-body-md text-body-md font-medium">Sequence Alignment &amp; FASTA</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-all" data-path="pipeline-and-aws-architecture" href="#"><span class="material-symbols-outlined text-headline-sm text-slate-500">hub</span><span class="font-body-md text-body-md font-medium">Pipeline &amp; AWS Architecture</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg bg-sky-50 text-sky-700 font-semibold border border-sky-100" data-path="saved-structures-and-history" href="#"><span class="material-symbols-outlined text-headline-sm text-sky-600">history_toggle_off</span><span class="font-body-md text-body-md">Saved Structures &amp; History</span></a></nav></div><div class="px-space-md"><div class="text-label-caps font-label-caps uppercase text-slate-400 px-space-sm mb-space-xs">Compute Instances</div><div class="flex flex-col gap-space-xs bg-slate-50 border border-slate-200 p-space-sm rounded-lg"><div class="flex items-center justify-between font-code-sm text-code-sm"><span class="text-slate-500">AWS Batch Queue</span><span class="text-sky-600 font-code-sm font-semibold">ACTIVE</span></div><div class="flex items-center justify-between font-code-sm text-code-sm"><span class="text-slate-500">GPU Node</span><span class="text-slate-800 font-code-sm font-medium">g5g.2xlarge</span></div><div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden mt-space-2xs"><div class="bg-sky-600 h-full w-2/3"></div></div></div></div></div><div class="px-space-lg flex flex-col gap-space-xs"><div class="text-label-caps font-label-caps text-slate-400 uppercase">Storage Cluster</div><div class="flex items-center justify-between text-code-sm font-code-sm text-slate-600 font-medium"><span>s3://alphafold-cache</span><span class="text-sky-600 font-bold">1.4 TB</span></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-white/95 backdrop-blur-md border-b border-slate-200 z-40 flex items-center justify-between px-space-lg shadow-sm"><div class="flex items-center gap-space-md"><img alt="FoldCloud Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W7v7P2ly4GTrw_EOaF43ea4-RNRu_5Mpg2UmHhNhRwcsJahefCxTlIfp-s6QwLg4ftqT7i7cJie3K_qzSsm_0DdSRHUzMuXF2P32YJCUKnpZiSWxsxBeEx91Hd9dqSN9gvyV42RNpPBK6PGDl64beUlj4N2tXj0-wVr25TGZl0vRQj60h86FdDx5oBv28-gRzycXpwYh7ZZ0chaC_8X3XQlo2snxyN2t0wvn5sc_joBqF9qJeHL60E6pU"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold text-slate-900 leading-tight tracking-tight">FoldCloud</span><span class="font-code-sm text-code-sm text-slate-500 leading-none">AlphaFold AWS BioPlatform</span></div></div><div class="flex items-center gap-space-sm flex-1 max-w-xl mx-space-lg"><div class="relative w-full flex items-center bg-white border border-slate-300 rounded-lg px-space-sm py-space-xs shadow-inner"><span class="material-symbols-outlined text-slate-400 text-body-lg mr-space-xs">search</span><input class="w-full bg-transparent border-0 outline-none font-body-sm text-body-sm text-slate-900 placeholder:text-slate-400 focus:ring-0" placeholder="Accession / UniProt ID / Gene symbol..." type="text"/><div class="flex items-center gap-space-xs"><span class="px-space-xs py-space-2xs bg-slate-100 border border-slate-200 text-slate-600 rounded font-code-sm text-code-sm">⌘K</span></div></div><div class="hidden xl:flex items-center gap-space-xs"><a class="px-space-xs py-space-2xs bg-slate-100 hover:bg-slate-200 text-sky-700 hover:text-slate-900 border border-slate-200 rounded font-code-sm text-code-sm transition-colors" href="#">P69905</a><a class="px-space-xs py-space-2xs bg-slate-100 hover:bg-slate-200 text-sky-700 hover:text-slate-900 border border-slate-200 rounded font-code-sm text-code-sm transition-colors" href="#">P01308</a><a class="px-space-xs py-space-2xs bg-slate-100 hover:bg-slate-200 text-sky-700 hover:text-slate-900 border border-slate-200 rounded font-code-sm text-code-sm transition-colors" href="#">P0DTC2</a></div></div><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs bg-slate-100 border border-slate-200 px-space-sm py-space-2xs rounded-lg"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span class="font-code-sm text-code-sm text-slate-600 font-medium">AWS us-east-1 · AF DB Sync Active · Py 3.11</span></div><div class="hidden sm:flex items-center gap-space-2xs text-slate-500 font-code-sm text-code-sm"><span class="material-symbols-outlined text-body-sm text-slate-400">speed</span><span>18ms</span></div><a class="text-slate-500 hover:text-slate-900 transition-colors p-space-xs rounded-lg hover:bg-slate-100" href="#"><span class="material-symbols-outlined text-headline-sm">menu_book</span></a><button class="relative text-slate-500 hover:text-slate-900 transition-colors p-space-xs rounded-lg hover:bg-slate-100"><span class="material-symbols-outlined text-headline-sm">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-sky-600"></span></button><div class="flex items-center gap-space-xs pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full ring-2 ring-slate-200 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTnDKNIxyu8vWFkBU3Wi4UbDYbJUz_-EHsgUA3rNLDXmLF_UcuuZQFBcWjdnKjPDCRYKlvJmuf_auAfgZPXwk7aZQZfexle2TPX5n9_g8YkRIuYqRswiKkYLw0yqa298xYsNH5cl4_zDvBxOim_SXc4ouh68KQf8wy7oLm_r-MEmUCVTeCdrSpihqeuuioGTt-dsoAWbiXyosdDQazIBcQ6bALmU3Ei2WNQO-pYvujY2yenea2bZNh"/></div></div></header><main class="w-full pt-16 flex-1 bg-[#f8fafc]"><div class="flex flex-col w-full">
+<!-- Top Analytical Banner & Storage Metrics -->
+<div class="px-space-lg py-space-md bg-white border-b border-slate-200 flex flex-col xl:flex-row xl:items-center xl:justify-between gap-space-md shadow-sm">
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center gap-space-xs text-sky-700 font-code-sm text-code-sm uppercase tracking-wider font-semibold">
+<span class="inline-block w-2 h-2 rounded-full bg-sky-600 animate-pulse"></span>
+<span>Local Workspace Cache · Active Sync</span>
+</div>
+<div class="flex items-baseline gap-space-sm flex-wrap">
+<span class="font-headline-md text-headline-md text-slate-900 font-bold tracking-tight">Saved Structures &amp; Catalog</span>
+<span class="font-code-md text-code-md text-slate-500">/ s3://alphafold-structures-production/lab-alpha-09/</span>
+</div>
+</div>
+<!-- Cluster Telemetry Quick Stats -->
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex items-center gap-space-sm bg-slate-50 border border-slate-200 px-space-md py-space-xs rounded-xl shadow-sm">
+<div class="p-space-xs bg-sky-50 text-sky-600 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-body-lg">database</span>
+</div>
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-slate-500 uppercase">Stored Models</span>
+<span class="font-code-lg text-code-lg font-bold text-slate-900">64 <span class="text-slate-500 text-code-sm font-normal">Entries</span></span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm bg-slate-50 border border-slate-200 px-space-md py-space-xs rounded-xl shadow-sm">
+<div class="p-space-xs bg-indigo-50 text-indigo-600 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-body-lg">cloud_sync</span>
+</div>
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-slate-500 uppercase">AWS S3 Volume</span>
+<span class="font-code-lg text-code-lg font-bold text-slate-900">89.2 <span class="text-slate-500 text-code-sm font-normal">MB / 500 MB</span></span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm bg-slate-50 border border-slate-200 px-space-md py-space-xs rounded-xl shadow-sm">
+<div class="p-space-xs bg-sky-50 text-sky-600 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-body-lg">schedule</span>
+</div>
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-slate-500 uppercase">Telemetry State</span>
+<span class="font-code-lg text-code-lg font-semibold text-sky-700">Synced 4m ago</span>
+</div>
+</div>
+<button class="p-space-sm bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-600 hover:text-sky-600 rounded-xl transition-all shadow-sm flex items-center justify-center" id="refreshCacheBtn" title="Refresh local cache">
+<span class="material-symbols-outlined text-body-lg">sync</span>
+</button>
+</div>
+</div>
+<div class="p-space-lg flex flex-col gap-space-lg">
+<!-- Filter, Search & Parametric Sorting Bar -->
+<div class="bg-white border border-slate-200 p-space-md rounded-xl flex flex-col gap-space-md shadow-sm">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- Search Input -->
+<div class="relative flex-1 max-w-2xl flex items-center bg-slate-50 border border-slate-300 rounded-lg px-space-sm py-space-xs shadow-inner">
+<span class="material-symbols-outlined text-sky-600 text-body-lg mr-space-xs">manage_search</span>
+<input class="w-full bg-transparent border-0 outline-none font-body-sm text-body-sm text-slate-900 placeholder:text-slate-400" id="searchInput" placeholder="Search by UniProt (e.g., P69905), PDB code, or Gene (HBA1, TP53)..." type="text"/>
+<span class="px-space-xs py-space-2xs bg-white border border-slate-200 text-slate-500 rounded font-code-sm text-code-sm">FILTER</span>
+</div>
+<!-- Sort Selectors & Layout Switcher -->
+<div class="flex items-center gap-space-sm flex-wrap justify-end">
+<div class="flex items-center gap-space-xs bg-slate-50 border border-slate-200 px-space-sm py-space-xs rounded-lg text-slate-700">
+<span class="font-code-sm text-code-sm text-slate-500 uppercase">Sort:</span>
+<select class="bg-transparent border-0 outline-none font-code-sm text-code-sm text-sky-700 font-semibold cursor-pointer pr-space-xs" id="sortSelect">
+<option class="bg-white text-slate-800" value="date">Date Retrieved (Recent)</option>
+<option class="bg-white text-slate-800" value="plddt-desc">Highest pLDDT Score</option>
+<option class="bg-white text-slate-800" value="plddt-asc">Lowest pLDDT (Disordered)</option>
+<option class="bg-white text-slate-800" value="mass">Residue Length / Mass</option>
+</select>
+</div>
+<div class="flex items-center bg-slate-100 border border-slate-200 rounded-lg p-0.5">
+<button class="px-space-xs py-space-2xs bg-white text-sky-700 font-semibold rounded shadow-sm font-code-sm text-code-sm flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-body-sm">grid_view</span>
+<span>Cards</span>
+</button>
+<button class="px-space-xs py-space-2xs text-slate-500 hover:text-slate-900 rounded font-code-sm text-code-sm flex items-center gap-space-2xs transition-colors">
+<span class="material-symbols-outlined text-body-sm">view_list</span>
+<span>Matrix</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Segmented Tag Filters -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pt-space-xs border-0">
+<!-- Organism Pills -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-code-sm text-code-sm text-slate-500 uppercase mr-space-xs">Taxonomy:</span>
+<button class="tax-btn px-space-sm py-space-2xs bg-sky-100 text-sky-800 font-code-sm text-code-sm font-semibold rounded-full border border-sky-200 transition-all" data-filter="all-tax">All (64)</button>
+<button class="tax-btn px-space-sm py-space-2xs bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 font-code-sm text-code-sm rounded-full border border-slate-200 transition-all" data-filter="Homo sapiens">Homo sapiens (48)</button>
+<button class="tax-btn px-space-sm py-space-2xs bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 font-code-sm text-code-sm rounded-full border border-slate-200 transition-all" data-filter="SARS-CoV-2">SARS-CoV-2 (6)</button>
+<button class="tax-btn px-space-sm py-space-2xs bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 font-code-sm text-code-sm rounded-full border border-slate-200 transition-all" data-filter="Escherichia coli">E. coli (5)</button>
+<button class="tax-btn px-space-sm py-space-2xs bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 font-code-sm text-code-sm rounded-full border border-slate-200 transition-all" data-filter="Mus musculus">Mus musculus (3)</button>
+<button class="tax-btn px-space-sm py-space-2xs bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 font-code-sm text-code-sm rounded-full border border-slate-200 transition-all" data-filter="Arabidopsis">Arabidopsis (2)</button>
+</div>
+<!-- AlphaFold pLDDT Confidence Tier Pills -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-code-sm text-code-sm text-slate-500 uppercase mr-space-xs">pLDDT Band:</span>
+<button class="plddt-btn px-space-sm py-space-2xs bg-slate-200 text-slate-900 font-code-sm text-code-sm font-semibold rounded-lg border border-slate-300 transition-all" data-plddt="all">All Scores</button>
+<button class="plddt-btn px-space-sm py-space-2xs bg-slate-100 text-sky-700 hover:bg-slate-200 font-code-sm text-code-sm rounded-lg border border-slate-200 flex items-center gap-space-2xs transition-all" data-plddt="very-high">
+<span class="w-2 h-2 rounded-full bg-sky-600"></span>
+<span>&gt;90 Very High</span>
+</button>
+<button class="plddt-btn px-space-sm py-space-2xs bg-slate-100 text-indigo-700 hover:bg-slate-200 font-code-sm text-code-sm rounded-lg border border-slate-200 flex items-center gap-space-2xs transition-all" data-plddt="high">
+<span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+<span>70-90 Confident</span>
+</button>
+<button class="plddt-btn px-space-sm py-space-2xs bg-slate-100 text-amber-700 hover:bg-slate-200 font-code-sm text-code-sm rounded-lg border border-slate-200 flex items-center gap-space-2xs transition-all" data-plddt="low">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<span>&lt;70 Flexible/Low</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Active Batch Selection Action Dock -->
+<div class="bg-white border border-slate-200 p-space-md rounded-xl flex flex-col md:flex-row items-center justify-between gap-space-md shadow-sm transition-all" id="batchActionBar">
+<div class="flex items-center gap-space-md">
+<label class="flex items-center gap-space-xs cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-sky-600 bg-white border-slate-300 focus:ring-sky-500 cursor-pointer" id="selectAllCheckbox" type="checkbox"/>
+<span class="font-code-sm text-code-sm font-semibold text-slate-800"><span id="selectedCountText">6</span> of 6 Selected</span>
+</label>
+<span class="font-code-sm text-code-sm text-slate-500">Batch Payload: ~14.8 MB mmCIF / PDB</span>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="px-space-md py-space-xs bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 rounded-lg font-code-sm text-code-sm flex items-center gap-space-xs shadow-sm transition-all" id="s3SyncAction">
+<span class="material-symbols-outlined text-sky-600 text-body-md">cloud_upload</span>
+<span class="font-medium">Export to S3 Bucket</span>
+</button>
+<button class="px-space-md py-space-xs bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 rounded-lg font-code-sm text-code-sm flex items-center gap-space-xs shadow-sm transition-all" id="zipDownloadAction">
+<span class="material-symbols-outlined text-indigo-600 text-body-md">folder_zip</span>
+<span class="font-medium">Download Multi-PDB (.zip)</span>
+</button>
+<button class="px-space-md py-space-xs bg-sky-600 text-white font-semibold rounded-lg font-code-sm text-code-sm flex items-center gap-space-xs shadow-sm transition-all hover:bg-sky-700" id="runRmsdAction">
+<span class="material-symbols-outlined text-white text-body-md">linear_scale</span>
+<span>Run PyMOL / ChimeraX RMSD</span>
+</button>
+</div>
+</div>
+<!-- Structure Cards Grid (Bento Matrix) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-lg" id="structuresGrid">
+<!-- Card 1: Hemoglobin Alpha -->
+<div class="structure-card bg-white border border-slate-200 rounded-xl p-space-md flex flex-col justify-between shadow-sm hover:shadow-md transition-all group" data-gene="HBA1" data-len="142" data-name="Hemoglobin subunit alpha" data-plddt="92.4" data-tax="Homo sapiens" data-uniprot="P69905">
+<div class="flex flex-col gap-space-sm">
+<!-- Card Header & Checkbox -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<input checked="" class="card-checkbox w-4 h-4 rounded text-sky-600 bg-white border-slate-300 cursor-pointer focus:ring-sky-500" type="checkbox"/>
+<span class="font-code-lg text-code-lg font-bold text-sky-700 group-hover:text-sky-800 transition-colors">P69905</span>
+<span class="px-space-2xs py-0.5 bg-slate-100 text-slate-500 border border-slate-200 font-code-sm text-code-sm rounded">v4.0</span>
+</div>
+<!-- pLDDT Pill -->
+<div class="flex items-center gap-space-xs bg-sky-50 border border-sky-100 px-space-xs py-space-2xs rounded">
+<span class="w-2 h-2 rounded-full bg-sky-600"></span>
+<span class="font-code-sm text-code-sm font-bold text-sky-700">92.4%</span>
+</div>
+</div>
+<!-- Molecular Spec -->
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-slate-900">Hemoglobin subunit alpha</span>
+<div class="flex items-center gap-space-xs text-slate-500 font-code-sm text-code-sm mt-space-2xs">
+<span class="text-slate-800 font-semibold">HBA1</span>
+<span>·</span>
+<span>142 aa (15.3 kDa)</span>
+<span>·</span>
+<span>Homo sapiens</span>
+</div>
+</div>
+<!-- 3D Ribbon / Alpha Helix Preview Thumbnail -->
+<div class="relative w-full h-44 rounded-lg overflow-hidden bg-slate-900 mt-space-xs flex items-center justify-center border border-slate-200">
+<img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" data-alt="Intricate 3D molecular ribbon rendering of AlphaFold predicted Hemoglobin subunit alpha structure with prominent alpha-helical folds illuminated in brilliant cyan and sapphire blue against a pitch-black computational laboratory backdrop, high-resolution scientific simulation style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6glagA7zs1pqkNK-xZ0uDxy0OJmFf1abdrPhjJzPJE1NNbrlQeKim7hZieV6uYDVg5EYcJ7R8xyAyHEqUwWJsnVpNJARMpIEhzZ8ljVo7zxkQkxfCvfwqrCb65ZE7lRAxnON4hdy3uNz4my7e1gBGssIMPK5iwumHGUgT9P27Eaza2F5kNzu9ohW8Vnq74drq2tEr1zNUrAIeuYxv537AlJLoOg-jbPA8GqzVj0PfpsnBEyeWQ37I"/>
+<!-- Overlay Viewport Tag -->
+<div class="absolute bottom-2 left-2 bg-slate-900/80 backdrop-blur-md px-space-xs py-space-2xs rounded font-code-sm text-code-sm text-white flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-sky-400 text-body-sm">view_in_ar</span>
+<span>Alpha-Helical Globular Fold</span>
+</div>
+<!-- Floating Quick Inspect Hover Action -->
+<button class="inspect-btn absolute top-2 right-2 p-space-xs bg-white/90 hover:bg-sky-600 hover:text-white text-slate-800 rounded-lg opacity-0 group-hover:opacity-100 transition-all shadow-md">
+<span class="material-symbols-outlined text-body-md">visibility</span>
+</button>
+</div>
+<!-- Mini Sequence pLDDT Spectrum Bar -->
+<div class="flex flex-col gap-space-2xs mt-space-xs">
+<div class="flex justify-between items-center text-code-sm font-code-sm text-slate-500">
+<span>Per-Residue Confidence (1 - 142)</span>
+<span class="text-sky-700 font-semibold">High Fidelity</span>
+</div>
+<div class="w-full h-2 rounded-full overflow-hidden bg-slate-100 border border-slate-200 flex">
+<div class="bg-sky-600 h-full" style="width: 88%;"></div>
+<div class="bg-indigo-400 h-full" style="width: 10%;"></div>
+<div class="bg-amber-400 h-full" style="width: 2%;"></div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="flex items-center justify-between pt-space-md mt-space-sm border-t border-slate-100">
+<span class="font-code-sm text-code-sm text-slate-500">PAE Matrix · Ready</span>
+<div class="flex items-center gap-space-xs">
+<button class="p-space-xs bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 rounded text-code-sm font-code-sm flex items-center gap-space-2xs transition-colors" title="Download PDB format">
+<span class="material-symbols-outlined text-body-md text-sky-600">download</span>
+<span class="font-medium">.PDB</span>
+</button>
+<button class="px-space-sm py-space-xs bg-sky-600 hover:bg-sky-700 text-white rounded text-code-sm font-code-sm font-semibold flex items-center gap-space-2xs transition-all shadow-sm">
+<span class="material-symbols-outlined text-body-md">center_focus_strong</span>
+<span>3D Inspect</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Insulin -->
+<div class="structure-card bg-white border border-slate-200 rounded-xl p-space-md flex flex-col justify-between shadow-sm hover:shadow-md transition-all group" data-gene="INS" data-len="110" data-name="Insulin" data-plddt="87.6" data-tax="Homo sapiens" data-uniprot="P01308">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<input checked="" class="card-checkbox w-4 h-4 rounded text-sky-600 bg-white border-slate-300 cursor-pointer focus:ring-sky-500" type="checkbox"/>
+<span class="font-code-lg text-code-lg font-bold text-sky-700 group-hover:text-sky-800 transition-colors">P01308</span>
+<span class="px-space-2xs py-0.5 bg-slate-100 text-slate-500 border border-slate-200 font-code-sm text-code-sm rounded">v4.0</span>
+</div>
+<div class="flex items-center gap-space-xs bg-indigo-50 border border-indigo-100 px-space-xs py-space-2xs rounded">
+<span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+<span class="font-code-sm text-code-sm font-bold text-indigo-700">87.6%</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-slate-900">Insulin</span>
+<div class="flex items-center gap-space-xs text-slate-500 font-code-sm text-code-sm mt-space-2xs">
+<span class="text-slate-800 font-semibold">INS</span>
+<span>·</span>
+<span>110 aa (12.0 kDa)</span>
+<span>·</span>
+<span>Homo sapiens</span>
+</div>
+</div>
+<!-- 3D Ribbon Preview -->
+<div class="relative w-full h-44 rounded-lg overflow-hidden bg-slate-900 mt-space-xs flex items-center justify-center border border-slate-200">
+<img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" data-alt="High quality 3D structural ribbon model of human insulin monomer with disulfide bridges highlighted in glowing gold and secondary structures in soft cyan and lilac against a dark technical bio-dashboard interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1UCoBMqIqsKuK3IqKAjIQTPBS6qgnMk_fcXu8C3bVUjNCLyb1dGwWtbqc-RvMImPdUhQAlehQ-zX5WTejywREJqdTPzexiaD4aN0ET3KEy6lWarCgJvD0RNZJaR-V0CfdmGQBefIJ6v7VlJdfG-wioXbgfIafU8g2U4gCDvq_xq_5R4PS8pwlIfly1bBYqm5IznfXsEsfQxilTX0SDulE0X7IufGTm0eRXzZK_Ra-Dk5pbHHEpcDL"/>
+<div class="absolute bottom-2 left-2 bg-slate-900/80 backdrop-blur-md px-space-xs py-space-2xs rounded font-code-sm text-code-sm text-white flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-indigo-400 text-body-sm">hub</span>
+<span>A/B Chain Disulfide Linked</span>
+</div>
+<button class="inspect-btn absolute top-2 right-2 p-space-xs bg-white/90 hover:bg-sky-600 hover:text-white text-slate-800 rounded-lg opacity-0 group-hover:opacity-100 transition-all shadow-md">
+<span class="material-symbols-outlined text-body-md">visibility</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-2xs mt-space-xs">
+<div class="flex justify-between items-center text-code-sm font-code-sm text-slate-500">
+<span>Per-Residue Confidence (1 - 110)</span>
+<span class="text-indigo-600 font-semibold">Signal Cleaved</span>
+</div>
+<div class="w-full h-2 rounded-full overflow-hidden bg-slate-100 border border-slate-200 flex">
+<div class="bg-sky-600 h-full" style="width: 72%;"></div>
+<div class="bg-indigo-400 h-full" style="width: 22%;"></div>
+<div class="bg-amber-400 h-full" style="width: 6%;"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-sm border-t border-slate-100">
+<span class="font-code-sm text-code-sm text-slate-500">mmCIF / PAE Sync</span>
+<div class="flex items-center gap-space-xs">
+<button class="p-space-xs bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 rounded text-code-sm font-code-sm flex items-center gap-space-2xs transition-colors" title="Download PDB">
+<span class="material-symbols-outlined text-body-md text-sky-600">download</span>
+<span class="font-medium">.PDB</span>
+</button>
+<button class="px-space-sm py-space-xs bg-sky-600 hover:bg-sky-700 text-white rounded text-code-sm font-code-sm font-semibold flex items-center gap-space-2xs transition-all shadow-sm">
+<span class="material-symbols-outlined text-body-md">center_focus_strong</span>
+<span>3D Inspect</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Spike Glycoprotein -->
+<div class="structure-card bg-white border border-slate-200 rounded-xl p-space-md flex flex-col justify-between shadow-sm hover:shadow-md transition-all group" data-gene="S" data-len="1273" data-name="Spike glycoprotein" data-plddt="78.2" data-tax="SARS-CoV-2" data-uniprot="P0DTC2">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<input checked="" class="card-checkbox w-4 h-4 rounded text-sky-600 bg-white border-slate-300 cursor-pointer focus:ring-sky-500" type="checkbox"/>
+<span class="font-code-lg text-code-lg font-bold text-sky-700 group-hover:text-sky-800 transition-colors">P0DTC2</span>
+<span class="px-space-2xs py-0.5 bg-slate-100 text-slate-500 border border-slate-200 font-code-sm text-code-sm rounded">v4.0</span>
+</div>
+<div class="flex items-center gap-space-xs bg-indigo-50 border border-indigo-100 px-space-xs py-space-2xs rounded">
+<span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+<span class="font-code-sm text-code-sm font-bold text-indigo-700">78.2%</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-slate-900 truncate">Spike glycoprotein</span>
+<div class="flex items-center gap-space-xs text-slate-500 font-code-sm text-code-sm mt-space-2xs">
+<span class="text-slate-800 font-semibold">S (RBD)</span>
+<span>·</span>
+<span>1,273 aa (141.2 kDa)</span>
+<span>·</span>
+<span class="text-sky-700 font-medium">SARS-CoV-2</span>
+</div>
+</div>
+<!-- Trimeric Preview -->
+<div class="relative w-full h-44 rounded-lg overflow-hidden bg-slate-900 mt-space-xs flex items-center justify-center border border-slate-200">
+<img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" data-alt="Detailed 3D cryo-EM visualization of SARS-CoV-2 Spike glycoprotein trimer in pre-fusion conformation, color-coded by molecular surface hydrophobicity with deep cyan core and violet receptor-binding domain tips against a dark scientific interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx_L-yz9yanGsj9qq3IOszycr89CA_1plcNMKudgvFenSINFWaINxFV4Rh4pO-mYDBeCsY9i60e6SxC-CIVhM1GvpXbJi847mZHc0yBqgO0wbO_8zhIlfU4itJGjaOQZhm_JMLKKmpqAsr4_jkJqgENy1kIEluwGfShQ7EBndZSyT3m_PEajLitfqE50l6r0_rG1Lq-NgRNF9we0YV9Ewg1goib6S21Acse4NuG7Cu05Bppc8TjatE"/>
+<div class="absolute bottom-2 left-2 bg-slate-900/80 backdrop-blur-md px-space-xs py-space-2xs rounded font-code-sm text-code-sm text-white flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-sky-400 text-body-sm">coronavirus</span>
+<span>Trimeric Surface Model</span>
+</div>
+<button class="inspect-btn absolute top-2 right-2 p-space-xs bg-white/90 hover:bg-sky-600 hover:text-white text-slate-800 rounded-lg opacity-0 group-hover:opacity-100 transition-all shadow-md">
+<span class="material-symbols-outlined text-body-md">visibility</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-2xs mt-space-xs">
+<div class="flex justify-between items-center text-code-sm font-code-sm text-slate-500">
+<span>Per-Residue Confidence (1 - 1,273)</span>
+<span class="text-indigo-600 font-semibold">Complex Flexible Loops</span>
+</div>
+<div class="w-full h-2 rounded-full overflow-hidden bg-slate-100 border border-slate-200 flex">
+<div class="bg-sky-600 h-full" style="width: 58%;"></div>
+<div class="bg-indigo-400 h-full" style="width: 28%;"></div>
+<div class="bg-amber-400 h-full" style="width: 14%;"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-sm border-t border-slate-100">
+<span class="font-code-sm text-code-sm text-slate-500">Multimer Model</span>
+<div class="flex items-center gap-space-xs">
+<button class="p-space-xs bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 rounded text-code-sm font-code-sm flex items-center gap-space-2xs transition-colors" title="Download PDB">
+<span class="material-symbols-outlined text-body-md text-sky-600">download</span>
+<span class="font-medium">.PDB</span>
+</button>
+<button class="px-space-sm py-space-xs bg-sky-600 hover:bg-sky-700 text-white rounded text-code-sm font-code-sm font-semibold flex items-center gap-space-2xs transition-all shadow-sm">
+<span class="material-symbols-outlined text-body-md">center_focus_strong</span>
+<span>3D Inspect</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4: Cellular Tumor Antigen p53 -->
+<div class="structure-card bg-white border border-slate-200 rounded-xl p-space-md flex flex-col justify-between shadow-sm hover:shadow-md transition-all group" data-gene="TP53" data-len="393" data-name="Cellular tumor antigen p53" data-plddt="64.8" data-tax="Homo sapiens" data-uniprot="P04637">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<input checked="" class="card-checkbox w-4 h-4 rounded text-sky-600 bg-white border-slate-300 cursor-pointer focus:ring-sky-500" type="checkbox"/>
+<span class="font-code-lg text-code-lg font-bold text-sky-700 group-hover:text-sky-800 transition-colors">P04637</span>
+<span class="px-space-2xs py-0.5 bg-slate-100 text-slate-500 border border-slate-200 font-code-sm text-code-sm rounded">v4.0</span>
+</div>
+<div class="flex items-center gap-space-xs bg-amber-50 border border-amber-200 px-space-xs py-space-2xs rounded">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<span class="font-code-sm text-code-sm font-bold text-amber-700">64.8%</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-slate-900">Tumor antigen p53</span>
+<div class="flex items-center gap-space-xs text-slate-500 font-code-sm text-code-sm mt-space-2xs">
+<span class="text-slate-800 font-semibold">TP53</span>
+<span>·</span>
+<span>393 aa (43.7 kDa)</span>
+<span>·</span>
+<span>Homo sapiens</span>
+</div>
+</div>
+<!-- Preview with Disordered Domains -->
+<div class="relative w-full h-44 rounded-lg overflow-hidden bg-slate-900 mt-space-xs flex items-center justify-center border border-slate-200">
+<img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" data-alt="Bioinformatic 3D depiction of human p53 transcription factor showcasing a structured DNA-binding domain in deep electric blue surrounded by intrinsically disordered N-terminal and C-terminal flexible chains in warm orange against a sleek dark scientific canvas." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB30XW0eU6150pyNt5_CURnceptROWRYy4RafWGR5XtZymFmJZx5TggtzH1gNs6xqXJ8aD5P3xypy4m-NuD4SPvK1J-KueGqMiscIY9dOgY2Ib2UcKvPavOAvxmAD8VD1X9CCYBI0LLj-z78tPXcSppu9EFJfgphj7PfD7hHQJlGtAzRV-0k3YcNJJKHU5QHoKIsukAMjEdc2ovOjkNyGRYOuZ1DIweGwffaeHc0QJCS6IbOCEdg0uS"/>
+<div class="absolute bottom-2 left-2 bg-slate-900/80 backdrop-blur-md px-space-xs py-space-2xs rounded font-code-sm text-code-sm text-white flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-amber-400 text-body-sm">grain</span>
+<span>Intrinsically Disordered Flanks</span>
+</div>
+<button class="inspect-btn absolute top-2 right-2 p-space-xs bg-white/90 hover:bg-sky-600 hover:text-white text-slate-800 rounded-lg opacity-0 group-hover:opacity-100 transition-all shadow-md">
+<span class="material-symbols-outlined text-body-md">visibility</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-2xs mt-space-xs">
+<div class="flex justify-between items-center text-code-sm font-code-sm text-slate-500">
+<span>Per-Residue Confidence (1 - 393)</span>
+<span class="text-amber-600 font-semibold">IDR Present</span>
+</div>
+<div class="w-full h-2 rounded-full overflow-hidden bg-slate-100 border border-slate-200 flex">
+<div class="bg-sky-600 h-full" style="width: 44%;"></div>
+<div class="bg-indigo-400 h-full" style="width: 18%;"></div>
+<div class="bg-amber-400 h-full" style="width: 38%;"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-sm border-t border-slate-100">
+<span class="font-code-sm text-code-sm text-slate-500">Core DNA Domain &gt;90</span>
+<div class="flex items-center gap-space-xs">
+<button class="p-space-xs bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 rounded text-code-sm font-code-sm flex items-center gap-space-2xs transition-colors" title="Download PDB">
+<span class="material-symbols-outlined text-body-md text-sky-600">download</span>
+<span class="font-medium">.PDB</span>
+</button>
+<button class="px-space-sm py-space-xs bg-sky-600 hover:bg-sky-700 text-white rounded text-code-sm font-code-sm font-semibold flex items-center gap-space-2xs transition-all shadow-sm">
+<span class="material-symbols-outlined text-body-md">center_focus_strong</span>
+<span>3D Inspect</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5: Apolipoprotein E -->
+<div class="structure-card bg-white border border-slate-200 rounded-xl p-space-md flex flex-col justify-between shadow-sm hover:shadow-md transition-all group" data-gene="APOE" data-len="317" data-name="Apolipoprotein E" data-plddt="84.1" data-tax="Homo sapiens" data-uniprot="P02649">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<input checked="" class="card-checkbox w-4 h-4 rounded text-sky-600 bg-white border-slate-300 cursor-pointer focus:ring-sky-500" type="checkbox"/>
+<span class="font-code-lg text-code-lg font-bold text-sky-700 group-hover:text-sky-800 transition-colors">P02649</span>
+<span class="px-space-2xs py-0.5 bg-slate-100 text-slate-500 border border-slate-200 font-code-sm text-code-sm rounded">v4.0</span>
+</div>
+<div class="flex items-center gap-space-xs bg-indigo-50 border border-indigo-100 px-space-xs py-space-2xs rounded">
+<span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+<span class="font-code-sm text-code-sm font-bold text-indigo-700">84.1%</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-slate-900">Apolipoprotein E</span>
+<div class="flex items-center gap-space-xs text-slate-500 font-code-sm text-code-sm mt-space-2xs">
+<span class="text-slate-800 font-semibold">APOE</span>
+<span>·</span>
+<span>317 aa (36.1 kDa)</span>
+<span>·</span>
+<span>Homo sapiens</span>
+</div>
+</div>
+<!-- 3D Helix Bundle Preview -->
+<div class="relative w-full h-44 rounded-lg overflow-hidden bg-slate-900 mt-space-xs flex items-center justify-center border border-slate-200">
+<img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" data-alt="Modern 3D protein structure visualization of human Apolipoprotein E four-helix bundle with amphipathic lipid-binding alpha helices rendered in vibrant cyan and cobalt blue on an ultra-dark navy background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQCt6dqECUsgrFLvnP_ahVUHbvPCb2OOL3wKtJiu57pUMWzHW2GFU57kQsy52ft9iI-q98gL-4X5f7L15Cj5AMxT-GCvWSE30Wi2z4ujDBUeYcJvVvlVMyPUAk3h5q9_YKlXzBxYV7Vev-WRNfwBLvqnPZto5_Fj2DZ877aMeSCfuafJ_U_wGckeGjRxgzTIPqe9MtUOEXupxZlTgeBoH6Mls0O-jS9uILpzxg-w1F5TWx2EmLNbi1"/>
+<div class="absolute bottom-2 left-2 bg-slate-900/80 backdrop-blur-md px-space-xs py-space-2xs rounded font-code-sm text-code-sm text-white flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-indigo-400 text-body-sm">polyline</span>
+<span>Amphipathic Helical Bundle</span>
+</div>
+<button class="inspect-btn absolute top-2 right-2 p-space-xs bg-white/90 hover:bg-sky-600 hover:text-white text-slate-800 rounded-lg opacity-0 group-hover:opacity-100 transition-all shadow-md">
+<span class="material-symbols-outlined text-body-md">visibility</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-2xs mt-space-xs">
+<div class="flex justify-between items-center text-code-sm font-code-sm text-slate-500">
+<span>Per-Residue Confidence (1 - 317)</span>
+<span class="text-indigo-600 font-semibold">Confident Fold</span>
+</div>
+<div class="w-full h-2 rounded-full overflow-hidden bg-slate-100 border border-slate-200 flex">
+<div class="bg-sky-600 h-full" style="width: 76%;"></div>
+<div class="bg-indigo-400 h-full" style="width: 16%;"></div>
+<div class="bg-amber-400 h-full" style="width: 8%;"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-sm border-t border-slate-100">
+<span class="font-code-sm text-code-sm text-slate-500">Isoform ε3 / ε4 Target</span>
+<div class="flex items-center gap-space-xs">
+<button class="p-space-xs bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 rounded text-code-sm font-code-sm flex items-center gap-space-2xs transition-colors" title="Download PDB">
+<span class="material-symbols-outlined text-body-md text-sky-600">download</span>
+<span class="font-medium">.PDB</span>
+</button>
+<button class="px-space-sm py-space-xs bg-sky-600 hover:bg-sky-700 text-white rounded text-code-sm font-code-sm font-semibold flex items-center gap-space-2xs transition-all shadow-sm">
+<span class="material-symbols-outlined text-body-md">center_focus_strong</span>
+<span>3D Inspect</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6: Tau Protein (MAPT) -->
+<div class="structure-card bg-white border border-slate-200 rounded-xl p-space-md flex flex-col justify-between shadow-sm hover:shadow-md transition-all group" data-gene="MAPT" data-len="758" data-name="Microtubule-associated protein tau" data-plddt="52.3" data-tax="Homo sapiens" data-uniprot="P10636">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<input checked="" class="card-checkbox w-4 h-4 rounded text-sky-600 bg-white border-slate-300 cursor-pointer focus:ring-sky-500" type="checkbox"/>
+<span class="font-code-lg text-code-lg font-bold text-sky-700 group-hover:text-sky-800 transition-colors">P10636</span>
+<span class="px-space-2xs py-0.5 bg-slate-100 text-slate-500 border border-slate-200 font-code-sm text-code-sm rounded">v4.0</span>
+</div>
+<div class="flex items-center gap-space-xs bg-amber-50 border border-amber-200 px-space-xs py-space-2xs rounded">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<span class="font-code-sm text-code-sm font-bold text-amber-700">52.3%</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-slate-900">Protein tau (MAPT)</span>
+<div class="flex items-center gap-space-xs text-slate-500 font-code-sm text-code-sm mt-space-2xs">
+<span class="text-slate-800 font-semibold">MAPT</span>
+<span>·</span>
+<span>758 aa (78.9 kDa)</span>
+<span>·</span>
+<span>Homo sapiens</span>
+</div>
+</div>
+<!-- Disordered Ribbon Preview -->
+<div class="relative w-full h-44 rounded-lg overflow-hidden bg-slate-900 mt-space-xs flex items-center justify-center border border-slate-200">
+<img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" data-alt="Scientific representation of human Microtubule-associated protein tau predicted conformation showing extensive intrinsically disordered polypeptide coils in deep amber and burnt orange with transient secondary microdomains in dark blue against a deep indigo computational workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-MMc8I9eg2iw7d1DAGQ3j8_nNxuzPlxmglRUJ3JId75iOzEiB_d0CnAYZA50V4XEHF6etz2phcieI6Wu8Eyq_siqaQX-WaJAfJ7gpqBC9xAD6vrrZrDQkkiiT-bcrfiL62lHruK6XQkTfZkfmJNMwe87bhLi7nk6Lf8OLAzkqU2kTlzBBvQP856c32DkXp2v5HGFmnGzZB-2M-ItX86z6CgbU8LFpc7SKRwLgrwORJtEoOI-QZz9g"/>
+<div class="absolute bottom-2 left-2 bg-slate-900/80 backdrop-blur-md px-space-xs py-space-2xs rounded font-code-sm text-code-sm text-white flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-amber-400 text-body-sm">all_inclusive</span>
+<span>Native Intrinsically Disordered</span>
+</div>
+<button class="inspect-btn absolute top-2 right-2 p-space-xs bg-white/90 hover:bg-sky-600 hover:text-white text-slate-800 rounded-lg opacity-0 group-hover:opacity-100 transition-all shadow-md">
+<span class="material-symbols-outlined text-body-md">visibility</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-2xs mt-space-xs">
+<div class="flex justify-between items-center text-code-sm font-code-sm text-slate-500">
+<span>Per-Residue Confidence (1 - 758)</span>
+<span class="text-amber-600 font-semibold">Low Mean pLDDT</span>
+</div>
+<div class="w-full h-2 rounded-full overflow-hidden bg-slate-100 border border-slate-200 flex">
+<div class="bg-sky-600 h-full" style="width: 22%;"></div>
+<div class="bg-indigo-400 h-full" style="width: 24%;"></div>
+<div class="bg-amber-400 h-full" style="width: 54%;"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-sm border-t border-slate-100">
+<span class="font-code-sm text-code-sm text-slate-500">Microtubule Binding Domain</span>
+<div class="flex items-center gap-space-xs">
+<button class="p-space-xs bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 rounded text-code-sm font-code-sm flex items-center gap-space-2xs transition-colors" title="Download PDB">
+<span class="material-symbols-outlined text-body-md text-sky-600">download</span>
+<span class="font-medium">.PDB</span>
+</button>
+<button class="px-space-sm py-space-xs bg-sky-600 hover:bg-sky-700 text-white rounded text-code-sm font-code-sm font-semibold flex items-center gap-space-2xs transition-all shadow-sm">
+<span class="material-symbols-outlined text-body-md">center_focus_strong</span>
+<span>3D Inspect</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State for Filters (Hidden by Default) -->
+<div class="hidden flex-col items-center justify-center p-space-3xl bg-white border border-slate-200 rounded-xl text-center shadow-sm" id="noResultsState">
+<span class="material-symbols-outlined text-display-lg text-slate-400 mb-space-sm">biotech</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 font-semibold">No Matching AlphaFold Structures</span>
+<p class="font-body-md text-body-md text-slate-500 max-w-md mt-space-xs">
+        No cached models fit the applied taxonomy and confidence criteria. Try clearing search filters or initiate a direct UniProt query.
+      </p>
+<button class="mt-space-md px-space-md py-space-xs bg-sky-600 hover:bg-sky-700 text-white rounded-lg font-code-sm text-code-sm font-semibold shadow-sm transition-all" id="resetFiltersBtn">
+        Reset Workspace Filters
+      </button>
+</div>
+<!-- Cloud Pipeline Architecture & Batch Job Drawer -->
+<div class="bg-white border border-slate-200 p-space-lg rounded-xl shadow-sm flex flex-col xl:flex-row gap-space-xl">
+<!-- Sync Status Column -->
+<div class="flex-1 flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="p-2 bg-sky-50 text-sky-600 rounded-lg border border-sky-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-headline-sm">hub</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold">AWS S3 Distributed Structure Sync</span>
+<span class="font-code-sm text-code-sm text-slate-500">Version 4.2.1 Multi-Zone Bio-Storage Service</span>
+</div>
+</div>
+<span class="px-space-xs py-space-2xs bg-emerald-50 text-emerald-700 border border-emerald-200 rounded font-code-sm text-code-sm font-semibold">HEALTHY (us-east-1)</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+<div class="bg-slate-50 border border-slate-200 p-space-md rounded-lg flex flex-col gap-space-xs">
+<span class="font-code-sm text-code-sm text-slate-500 uppercase">S3 Lifecycle Class</span>
+<span class="font-code-lg text-code-lg font-bold text-slate-900">Standard-IA</span>
+<span class="font-code-sm text-code-sm text-sky-700 font-medium">Auto-tiering active</span>
+</div>
+<div class="bg-slate-50 border border-slate-200 p-space-md rounded-lg flex flex-col gap-space-xs">
+<span class="font-code-sm text-code-sm text-slate-500 uppercase">Local Latency</span>
+<span class="font-code-lg text-code-lg font-bold text-slate-900">18.4 ms</span>
+<span class="font-code-sm text-code-sm text-indigo-600 font-medium">VPC Direct Gateway</span>
+</div>
+<div class="bg-slate-50 border border-slate-200 p-space-md rounded-lg flex flex-col gap-space-xs">
+<span class="font-code-sm text-code-sm text-slate-500 uppercase">Cache Invalidation</span>
+<span class="font-code-lg text-code-lg font-bold text-slate-900">30 Days</span>
+<span class="font-code-sm text-code-sm text-slate-500 font-medium">mmCIF sha256 checked</span>
+</div>
+</div>
+</div>
+<!-- Quick Fast AlphaFold Inference Dispatch -->
+<div class="w-full xl:w-96 bg-sky-50/60 border border-sky-100 p-space-md rounded-xl flex flex-col justify-between gap-space-md shadow-sm">
+<div class="flex flex-col gap-space-2xs">
+<span class="font-code-lg text-code-lg font-bold text-slate-900">Predict New Sequence</span>
+<span class="font-body-sm text-body-sm text-slate-600">Directly dispatch a fast single-chain AlphaFold job to AWS EC2 g5g.2xlarge GPU batch workers.</span>
+</div>
+<div class="relative flex items-center bg-white border border-slate-300 rounded-lg px-space-sm py-space-xs shadow-sm">
+<input class="w-full bg-transparent border-0 outline-none font-code-sm text-code-sm text-slate-900 placeholder:text-slate-400" placeholder="Paste FASTA or UniProt ID..." type="text"/>
+<button class="px-space-xs py-space-2xs bg-sky-600 text-white font-bold rounded font-code-sm text-code-sm hover:bg-sky-700 transition-colors shadow-sm">RUN</button>
+</div>
+<div class="flex items-center justify-between font-code-sm text-code-sm text-slate-600 font-medium">
+<span>Est. time: ~2m 40s</span>
+<span class="text-sky-700 font-semibold">GPU Slot Ready</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Notification Toast Modal (Interactive feedback) -->
+<div class="fixed bottom-6 right-6 z-50 bg-white border border-slate-200 text-slate-900 px-space-md py-space-sm rounded-xl shadow-xl flex items-center gap-space-sm transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="toastNotification">
+<span class="material-symbols-outlined text-sky-600 text-headline-sm" id="toastIcon">check_circle</span>
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm font-bold text-slate-900" id="toastTitle">Action Triggered</span>
+<span class="font-body-sm text-body-sm text-slate-500" id="toastMessage">Synchronizing with AWS S3...</span>
+</div>
+</div>
+</div>
+<script>
+  (function initWorkspaceCatalog() {
+    const searchInput = document.getElementById('searchInput');
+    const sortSelect = document.getElementById('sortSelect');
+    const cards = Array.from(document.querySelectorAll('.structure-card'));
+    const grid = document.getElementById('structuresGrid');
+    const noResults = document.getElementById('noResultsState');
+    const resetBtn = document.getElementById('resetFiltersBtn');
+    const taxButtons = Array.from(document.querySelectorAll('.tax-btn'));
+    const plddtButtons = Array.from(document.querySelectorAll('.plddt-btn'));
+    const cardCheckboxes = Array.from(document.querySelectorAll('.card-checkbox'));
+    const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+    const selectedCountText = document.getElementById('selectedCountText');
+
+    const toast = document.getElementById('toastNotification');
+    const toastTitle = document.getElementById('toastTitle');
+    const toastMessage = document.getElementById('toastMessage');
+
+    let currentTax = 'all-tax';
+    let currentPlddt = 'all';
+
+    function showToast(title, msg, icon = 'check_circle') {
+      toastTitle.textContent = title;
+      toastMessage.textContent = msg;
+      document.getElementById('toastIcon').textContent = icon;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3500);
+    }
+
+    function applyFilters() {
+      const query = (searchInput.value || '').trim().toLowerCase();
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const uniprot = (card.dataset.uniprot || '').toLowerCase();
+        const gene = (card.dataset.gene || '').toLowerCase();
+        const name = (card.dataset.name || '').toLowerCase();
+        const tax = card.dataset.tax;
+        const plddt = parseFloat(card.dataset.plddt) || 0;
+
+        const matchesQuery = !query || uniprot.includes(query) || gene.includes(query) || name.includes(query);
+        const matchesTax = currentTax === 'all-tax' || tax === currentTax;
+
+        let matchesPlddt = true;
+        if (currentPlddt === 'very-high') matchesPlddt = plddt >= 90;
+        else if (currentPlddt === 'high') matchesPlddt = plddt >= 70 && plddt < 90;
+        else if (currentPlddt === 'low') matchesPlddt = plddt < 70;
+
+        if (matchesQuery && matchesTax && matchesPlddt) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+        noResults.classList.add('flex');
+        grid.classList.add('hidden');
+      } else {
+        noResults.classList.add('hidden');
+        noResults.classList.remove('flex');
+        grid.classList.remove('hidden');
+      }
+
+      applySorting();
+      updateSelectedCount();
+    }
+
+    function applySorting() {
+      const mode = sortSelect.value;
+      const sortedCards = cards.slice().sort((a, b) => {
+        if (mode === 'plddt-desc') {
+          return parseFloat(b.dataset.plddt) - parseFloat(a.dataset.plddt);
+        } else if (mode === 'plddt-asc') {
+          return parseFloat(a.dataset.plddt) - parseFloat(b.dataset.plddt);
+        } else if (mode === 'mass') {
+          return parseInt(b.dataset.len) - parseInt(a.dataset.len);
+        }
+        return 0; // Default order
+      });
+
+      sortedCards.forEach(c => grid.appendChild(c));
+    }
+
+    function updateSelectedCount() {
+      const checkedBoxes = cards.filter(c => !c.classList.contains('hidden'))
+                                .map(c => c.querySelector('.card-checkbox'))
+                                .filter(cb => cb && cb.checked);
+      selectedCountText.textContent = checkedBoxes.length;
+      if (selectAllCheckbox) {
+        selectAllCheckbox.checked = checkedBoxes.length > 0;
+      }
+    }
+
+    // Taxonomy filter handlers
+    taxButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        taxButtons.forEach(b => {
+          b.classList.remove('bg-sky-100', 'text-sky-800', 'font-semibold', 'border-sky-200');
+          b.classList.add('bg-slate-100', 'text-slate-600', 'border-slate-200');
+        });
+        btn.classList.add('bg-sky-100', 'text-sky-800', 'font-semibold', 'border-sky-200');
+        btn.classList.remove('bg-slate-100', 'text-slate-600', 'border-slate-200');
+        currentTax = btn.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    // pLDDT filter handlers
+    plddtButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        plddtButtons.forEach(b => {
+          b.classList.remove('bg-slate-200', 'text-slate-900', 'font-semibold', 'border-slate-300');
+          b.classList.add('bg-slate-100', 'border-slate-200');
+        });
+        btn.classList.add('bg-slate-200', 'text-slate-900', 'font-semibold', 'border-slate-300');
+        btn.classList.remove('bg-slate-100', 'border-slate-200');
+        currentPlddt = btn.dataset.plddt;
+        applyFilters();
+      });
+    });
+
+    // Search and Sort inputs
+    searchInput.addEventListener('input', applyFilters);
+    sortSelect.addEventListener('change', applySorting);
+
+    // Select All Toggle
+    if (selectAllCheckbox) {
+      selectAllCheckbox.addEventListener('change', (e) => {
+        const isChecked = e.target.checked;
+        cards.forEach(card => {
+          if (!card.classList.contains('hidden')) {
+            const cb = card.querySelector('.card-checkbox');
+            if (cb) cb.checked = isChecked;
+          }
+        });
+        updateSelectedCount();
+      });
+    }
+
+    cardCheckboxes.forEach(cb => {
+      cb.addEventListener('change', updateSelectedCount);
+    });
+
+    // Reset filters action
+    resetBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      currentTax = 'all-tax';
+      currentPlddt = 'all';
+      taxButtons[0].click();
+      plddtButtons[0].click();
+      applyFilters();
+    });
+
+    // Action buttons micro-interactions
+    document.getElementById('s3SyncAction')?.addEventListener('click', () => {
+      const count = selectedCountText.textContent;
+      showToast('AWS S3 Synchronized', `Dispatched ${count} structure models to s3://alphafold-structures-production.`, 'cloud_done');
+    });
+
+    document.getElementById('zipDownloadAction')?.addEventListener('click', () => {
+      const count = selectedCountText.textContent;
+      showToast('Generating PDB Zip', `Bundling ${count} structures & PAE error matrices into multi-pdb-catalog.zip.`, 'folder_zip');
+    });
+
+    document.getElementById('runRmsdAction')?.addEventListener('click', () => {
+      showToast('RMSD Alignment Pipeline', 'Executing PyMOL pairwise superposition on AWS Batch cluster...', 'linear_scale');
+    });
+
+    document.getElementById('refreshCacheBtn')?.addEventListener('click', () => {
+      showToast('Cache Validated', 'All 64 structures verified against DeepMind AlphaFold DB v4.', 'check_circle');
+    });
+
+    document.querySelectorAll('.inspect-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const card = btn.closest('.structure-card');
+        const uniprot = card?.dataset.uniprot || '';
+        showToast('Launching 3D Canvas', `Opening full Mol* interactive viewer for ${uniprot}...`, 'view_in_ar');
+      });
+    });
+
+    updateSelectedCount();
+  })();
+</script></main><footer class="w-full bg-white border-t border-slate-200 py-space-md shadow-sm"><div class="w-full px-space-lg flex flex-wrap items-center justify-between gap-space-md text-slate-500 font-code-sm text-code-sm"><div class="flex items-center gap-space-md"><span>DeepMind AlphaFold Database v4 API integrated</span><span class="text-slate-300">•</span><span>AWS S3 Structure Cache &amp; BioPython Parser</span></div><div class="flex items-center gap-space-md"><span>Coordinate standard: <span class="text-sky-700 font-semibold">PDB / mmCIF / PAE</span></span><span class="text-slate-300">•</span><span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Distributed Cluster: healthy</span></div></div></footer></div></body></html>

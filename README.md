@@ -17,8 +17,11 @@
    ```
 5. Start the app:
    ```bash
-   streamlit run app.py
+   python -m streamlit run app.py
    ```
+
+   On Windows, use `python -m streamlit` so the command runs through the
+   selected virtual environment.
 
 ## Deploy on AWS EC2
 
@@ -26,6 +29,10 @@ The repository includes an EC2 service definition and an Ubuntu user-data
 script in [`deploy/`](./deploy/).
 
 ### Option 1: Automatic setup with EC2 user data
+
+This deployment hosts the Streamlit frontend and Python request logic in one
+EC2 process. The live protein data comes from the public AlphaFold Database;
+the supplied HTML dashboard pages do not yet read or write AWS S3.
 
 1. Open **EC2 → Launch instance** in the AWS Console.
 2. Select Ubuntu Server 24.04 LTS.
